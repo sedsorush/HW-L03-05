@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.btn {
+
+    font-family: Bebas Neue;
+    border-radius: 5px;
+    
+    &.bigPrimary {
+        background-color: #1A237E;
+        color: #BBDEFB;
+        border: 1px #81D4FA solid;
+
+        transition: all 250ms;
+
+        width: 300px;
+        height: 75px;
+        font-size: 25px;
+
+        &:hover {
+            scale: 1.05;
+            background-color: #283593;
+            box-shadow: 0 0 10px #283593;
+            cursor: pointer;
+        }
+        &:active{
+            scale: 0.95;
+        }
+    }
+
+    &.bigSecondary {
+        background-color: #81D4FA;
+        color: #1A237E;
+        border: 1px #1A237E solid;
+        border-radius: 5px;
+        transition: all 250ms;
+
+        width: 300px;
+        height: 75px;
+        font-size: 25px;
+
+        &:hover {
+            scale: 1.05;
+            background-color: #4FC3F7;
+            box-shadow: 0 0 10px #4FC3F7;
+            cursor: pointer;
+        }
+        &:active{
+            scale: 0.95;
+        }
+    }
+
+    &.smallPrimary {
+        background-color: #1A237E;
+        color: #BBDEFB;
+        border: 1px #81D4FA solid;
+        border-radius: 5px;
+        transition: all 250ms;
+
+        width: 150px;
+        height: 50px;
+        font-size: 22px;
+
+        &:hover {
+            scale: 1.05;
+            background-color: #283593;
+            box-shadow: 0 0 10px #283593;
+            cursor: pointer;
+        }
+        &:active{
+            scale: 0.95;
+        }
+    }
+
+    &.smallSecondary {
+        background-color: #81D4FA;
+        color: #1A237E;
+        border: 1px #1A237E solid;
+        border-radius: 5px;
+        transition: all 250ms;
+
+        width: 150px;
+        height: 50px;
+        font-size: 22px;
+
+        &:hover {
+            scale: 1.05;
+            background-color: #4FC3F7;
+            box-shadow: 0 0 10px #4FC3F7;
+            cursor: pointer;
+        }
+        &:active{
+            scale: 0.95;
+        }
+    }
+
+    &.disabledBigPrimary{
+        background-color: #9d9d9d;
+        color: #444444;
+
+        width: 300px;
+        height: 75px;
+        font-size: 25px;
+    }
+
+    &.disabledBigSecondary{
+        background-color: #444444;
+        color: #9d9d9d;
+
+        width: 300px;
+        height: 75px;
+        font-size: 25px;
+    }
+    &.disabledSmallPrimary{
+        background-color: #9d9d9d;
+        color: #444444;
+
+        width: 150px;
+        height: 50px;
+        font-size: 22px;
+    }
+
+    &.disabledSmallSecondary{
+        background-color: #444444;
+        color: #9d9d9d;
+
+        width: 150px;
+        height: 50px;
+        font-size: 22px;
+    }
+
+}

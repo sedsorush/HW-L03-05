@@ -1,0 +1,62 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #8fcdffcf;
+    width: 900px;
+    height: 450px;
+    border-radius: 8px;
+
+    margin: 140px;
+
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h1 {
+        font-size: 60px;
+        text-shadow: 0 0 5px #B3E5FC;
+
+        animation: textAnimation 2s linear infinite;
+    }
+
+    h2 {
+        text-shadow: 0 0 5px #B3E5FC;
+        color: #1A237E;
+        font-size: 35px;
+        margin: 0;
+    }
+    p {
+        color: #1a227eac;
+    }
+    
+    .menu {
+        display: flex;
+        gap: 20px;
+    }
+
+    @keyframes textAnimation {
+        0%{
+            color: #1A237E;
+        }
+        20%{
+            color: #283593;
+        }
+        40%{
+            color: #3949AB;
+        }
+        60%{
+            color: #3949AB;
+        }
+        80%{
+            color: #283593;
+        }
+        100%{
+            color: #1A237E;
+        }
+    }
+}

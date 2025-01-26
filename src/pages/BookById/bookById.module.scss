@@ -1,0 +1,103 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 100px;
+
+    width: 500px;
+    height: 500px;
+
+    position: relative;
+
+    background-color: #64b4f6e4;
+
+    .bookContainer {
+
+        display: flex;
+        flex-direction: column;
+        
+        p {
+            width: 400px;
+            color: #2e39aa;
+        }
+    
+        span {
+            font-size: 22px;
+            color: #0d135a;
+        }
+    }
+
+
+}
+.buttonContainer {
+    display: flex;
+    gap: 30px;
+}
+
+.spinner {
+    position: absolute;
+    top: 300px;
+    font-size: 30px;
+    color: #64B5F6;
+
+    animation: spinning 1s linear infinite;
+
+    @keyframes spinning {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+}
+
+.note {
+    position: absolute;
+    bottom: 5px;
+    color: #283593;
+
+    
+    a {
+        text-decoration: none;
+        color: #1A237E;
+        font-size: 15px;
+        transition: all 250ms;
+
+        &:hover{
+            text-shadow: 0 0 10px #1A237E;
+            color: rgb(23, 34, 109);
+        }
+    } 
+}
+
+.error {
+    background-color: #64b4f6e4;
+    width: 400px;
+    height: 200px;
+    border-radius: 8px;
+    color: #283593;
+    font-size: 18px;
+    position: absolute;
+    top: 250px;
+    left: 580px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+
+    a {
+        text-decoration: none;
+        color: #1A237E;
+        font-size: 20px;
+        transition: all 250ms;
+
+        &:hover{
+            text-shadow: 0 0 10px #1A237E;
+            color: rgb(23, 34, 109);
+        }
+    }   
+}

@@ -1,0 +1,69 @@
+.book {
+    width: 250px;
+    height: 250px;
+    background-color: #bbdefbea;
+    color: #1A237E;
+    border: 1px solid #1A237E;
+    border-radius: 8px;
+    margin: 15px 20px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    text-align: center;
+
+    cursor: pointer;
+    
+    transition: all 250ms;
+    h1 {
+        font-size: 30px;
+
+        padding: 0;
+        margin: 0;
+
+        transition: all 150ms;
+    }
+
+    div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+        h2 {
+            border-top: 1px #1A237E solid;
+            width: 90%;
+    
+            padding: 0;
+            margin: 0;
+            
+            font-size: 20px;
+    
+            transition: all 150ms;
+        }
+    
+        p {
+            padding: 0;
+            margin: 0;
+    
+            transition: all 150ms;
+    
+            color: #1a227e98;
+        }
+    }
+
+
+    &:hover {
+        scale: 1.05;
+        background-color: #90CAF9;
+        text-shadow: 0 0 1px #1A237E;
+    }
+    &:active{
+        scale: 0.95;
+    }
+}

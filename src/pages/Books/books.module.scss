@@ -1,0 +1,112 @@
+.bookList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #3949AB;
+
+    margin-bottom: 20px;
+
+    .header {
+        width: 100%;
+        height: 65px;
+        background-color: #64b4f6ec;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        h1 {
+            margin: 0;
+            padding: 0 30px;
+            font-size: 55px;
+            text-shadow: 0 0 5px #B3E5FC;
+            animation: textAnimation 2s linear infinite;
+        }
+
+        h3 {
+            margin: 0;
+            padding: 0 30px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1A237E;
+            font-size: 23px;
+            cursor: pointer;
+            transition: all 200ms;
+            &:hover{
+                text-shadow: 0 0 5px #5c69bc;
+                color: #00085f;
+            }
+        }
+        
+    }
+
+    .spinner {
+        position: absolute;
+        top: 300px;
+        font-size: 30px;
+        color: #64B5F6;
+
+        animation: spinning 1s linear infinite;
+    }
+
+    .error {
+        background-color: #64b4f6e4;
+        width: 400px;
+        height: 200px;
+        border-radius: 8px;
+        color: #283593;
+        font-size: 18px;
+        position: absolute;
+        top: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+
+        a {
+            text-decoration: none;
+            color: #1A237E;
+            font-size: 20px;
+            transition: all 250ms;
+    
+            &:hover{
+                text-shadow: 0 0 10px #1A237E;
+                color: rgb(23, 34, 109);
+            }
+        }   
+    }
+
+    @keyframes spinning {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes textAnimation {
+        0%{
+            color: #1A237E;
+        }
+        20%{
+            color: #283593;
+        }
+        40%{
+            color: #3949AB;
+        }
+        60%{
+            color: #3949AB;
+        }
+        80%{
+            color: #283593;
+        }
+        100%{
+            color: #1A237E;
+        }
+    }
+}
