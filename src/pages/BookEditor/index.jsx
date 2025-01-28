@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { baseURL } from '../../axios/apiService'
 import { ImSpinner2 } from 'react-icons/im'
+import { useSelector } from 'react-redux'
 
 const BookEditor = () => {
 
@@ -14,6 +15,8 @@ const BookEditor = () => {
   const navigate = useNavigate()
   const { data , isLoading , isFetching} = useGetBookByIdQuery(param.id)
   const { register , setValue , handleSubmit , watch , formState: {errors}} = useForm()
+  const { token } = useSelector((state)=>state.logReducer)
+
   
 
   useEffect(()=>{
@@ -32,7 +35,7 @@ const BookEditor = () => {
           },
           {
             headers: {
-            Authorization: "Bearer " + sessionStorage.getItem("token")
+            Authorization: "Bearer " + token
             }
           }
         );
@@ -47,7 +50,7 @@ const BookEditor = () => {
         const delBook = await axios.delete(baseURL+`api/books/${param.id}`,
           {
             headers: {
-              Authorization: "Bearer " + sessionStorage.getItem("token")
+              Authorization: "Bearer " + token
             }
           }
         );
@@ -63,7 +66,7 @@ const BookEditor = () => {
 
   let unChanged = watch('title')===data?.data?.title && watch("author")===data?.data?.author && watch("published")===data?.data?.publicationYear
 
-  if(!sessionStorage.getItem("token")) navigate("/login/log")
+  if(!token) navigate("/login/log")
   if(isFetching || isLoading) return <ImSpinner2 className={styles.spinner} />
   return (
     <div className={styles.mainContainer}>

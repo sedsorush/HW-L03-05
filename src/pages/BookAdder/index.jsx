@@ -7,19 +7,20 @@ import { useEffect } from 'react'
 import { baseURL } from '../../axios/apiService'
 import axios from 'axios'
 import * as Yup from "yup"
+import { useSelector } from 'react-redux'
 
 
 const BookAdder = () => {
 
   const navigate = useNavigate()
+  const { token } = useSelector((state)=>state.logReducer)
+
   const validationSchema = Yup.object({
     title: Yup.string().required().min(4),
     author: Yup.string(),
     published: Yup.number().lessThan((new Date()).getFullYear())
   })
   const { register , handleSubmit , setValue , watch , formState: {errors}} = useForm( {resolver: yupResolver(validationSchema) } )
-
-console.log((new Date()).getFullYear());
 
   const postBook = async({title , author , published , isbn}) => {
     try {
@@ -33,7 +34,7 @@ console.log((new Date()).getFullYear());
           },
           {
             headers: {
-              Authorization: "Bearer " + sessionStorage.getItem("token")
+              Authorization: "Bearer " + token
             }
           }
         );
@@ -55,7 +56,7 @@ console.log((new Date()).getFullYear());
     
   let unChanged = watch('title')==="" && watch("author")==="" && watch("published")===""  
 
-  if(!sessionStorage.getItem("token")) navigate("/login/log")
+  if(!token) navigate("/login/log")
   return (
     <div className={styles.mainContainer}>
       <form className={styles.editorContainer}

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 export const logSlice = createSlice({
     name: "logSlice",
     initialState: {
-        token: ""
+        token: sessionStorage.getItem("token")
     },
     reducers: {
         login (state , action) {

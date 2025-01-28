@@ -10,16 +10,16 @@ import { useSelector } from 'react-redux';
 const Books = () => {
 
   const {data , isError , isLoading , isFetching , isSuccess} = useGetBooksQuery()
-
   const navigate = useNavigate()
-
   const books = data?.data
+  const { token } = useSelector((state)=>state.logReducer)
+
 
 
   return (
     <div className={styles.bookList}>
       {isSuccess ? <div className={styles.header}>
-        <h1>BOOKS</h1>{sessionStorage.getItem("token") ? <h3><a onClick={()=>navigate("/books/add")}>Create a new book</a></h3>
+        <h1>BOOKS</h1>{token ? <h3><a onClick={()=>navigate("/books/add")}>Create a new book</a></h3>
           :<h3>You can edit and add new books if You're <Link to='/login/log'>LOGGED IN</Link>.</h3>}
       </div>:null}
       {isFetching||isLoading ? <ImSpinner2 className={styles.spinner}/>:null}

@@ -3,14 +3,15 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import Button from '../../components/Button'
 import { ImSpinner2 } from "react-icons/im";
 import { useGetBookByIdQuery } from '../../redux/slices/booksApiSlice'
+import { useSelector } from 'react-redux';
 
 const BookById = () => {
 
     const param = useParams()
     const navigate = useNavigate()
     const { data , isLoading , isFetching , isError } = useGetBookByIdQuery(param.id)
+    const { token } = useSelector((state)=>state.logReducer)
 
-  console.log(data);
   
 
   if(isFetching || isLoading) return <ImSpinner2 className={styles.spinner} />
@@ -33,17 +34,17 @@ const BookById = () => {
       </div>
 
       <div className={styles.buttonContainer}>
-        <Button variant={sessionStorage.getItem("token") ? "smallPrimary":"disabledSmallPrimary"} 
-          label="EDIT" disable={sessionStorage.getItem("token") ? false:true} 
+        <Button variant={token ? "smallPrimary":"disabledSmallPrimary"} 
+          label="EDIT" disable={token ? false:true} 
           onClick={()=>navigate(`/books/${data?.data?._id}/edit`)}
         />
-        <Button variant={sessionStorage.getItem("token") ? "smallSecondary":"disabledSmallSecondary"} 
-          label="ADD A NEW BOOK" disable={sessionStorage.getItem("token") ? false:true}
+        <Button variant={token ? "smallSecondary":"disabledSmallSecondary"} 
+          label="ADD A NEW BOOK" disable={token ? false:true}
           onClick={()=>navigate("/books/add")}
         />
       </div>
 
-      {sessionStorage.getItem("token") ? null
+      {token ? null
         :<p className={styles.note}>for Editing and Adding new Books You must be <Link to="/login/log">LOGGED IN</Link></p>}
     </div>
   )

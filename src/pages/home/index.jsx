@@ -12,14 +12,15 @@ const Home = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [userInfo , setUserInfo] = useState({})
-  const userLogStatus = useSelector((state)=>state.logReducer)
+  const { token } = useSelector((state)=>state.logReducer)
+  
 
   const getProfile = async() => {
     try {
       const res = await axios
         .get(baseURL+"api/auth/me" , {
           headers: {
-            Authorization: "Bearer " + sessionStorage.getItem("token")
+            Authorization: "Bearer " + token
           }
         });
         setUserInfo(res.data)
@@ -32,18 +33,18 @@ const Home = () => {
 
   useEffect(()=>{
     getProfile()
-  },[userLogStatus])
+  },[token])
 
   
   return (
     <div className={styles.mainContainer}>
         <div className={styles.container}>
           <h1>WELOCME TO BOOKSTORE</h1>
-          <h2>{sessionStorage.getItem("token")? userInfo?.username:null}</h2>
-          <p>{sessionStorage.getItem("token")? `id: ${userInfo?._id}`:null}</p>
+          <h2>{token? userInfo?.username:null}</h2>
+          <p>{token? `id: ${userInfo?._id}`:null}</p>
         </div>
         <div className={styles.menu}>
-            {sessionStorage.getItem("token") ? 
+            {token ? 
               <Button onClick={()=>{dispatch(logActions.logout());
                 navigate("/")}} label="LOGOUT" variant="bigPrimary" />
               :<Button onClick={()=>navigate("/login/log")} label="LOGIN & REGISTER" variant="bigPrimary" />
