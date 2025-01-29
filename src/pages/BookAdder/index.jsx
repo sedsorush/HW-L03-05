@@ -16,8 +16,8 @@ const BookAdder = () => {
   const { token } = useSelector((state)=>state.logReducer)
 
   const validationSchema = Yup.object({
-    title: Yup.string().required().min(4),
-    author: Yup.string(),
+    title: Yup.string().required(),
+    author: Yup.string().required(),
     published: Yup.number().lessThan((new Date()).getFullYear())
   })
   const { register , handleSubmit , setValue , watch , formState: {errors}} = useForm( {resolver: yupResolver(validationSchema) } )
@@ -54,7 +54,7 @@ const BookAdder = () => {
 
     console.log(errors);
     
-  let unChanged = watch('title')==="" && watch("author")==="" && watch("published")===""  
+  let unChanged = watch('title')===""
 
   if(!token) navigate("/login/log")
   return (
@@ -72,6 +72,7 @@ const BookAdder = () => {
               <input className={styles.input} id='author' 
                 {...register('author',{})}
               />
+              <p className={styles.error}>{errors?.author?.type === "required" ? "Please fill this field":null}</p>
             </label>
             <label className={styles.label} htmlFor='published'>Published Year:
               <input className={styles.input} id='published' 
